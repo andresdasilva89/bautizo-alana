@@ -45,25 +45,29 @@
     #portada .cover-art{z-index:0;clip-path:polygon(0 0,0 100%,100% 100%,100% 0,100% 26%,50% 52%,0 26%);-webkit-mask-image:radial-gradient(circle clamp(34px,12vmin,54px) at 50% 50.5%,transparent 0 97%,#000 100%);mask-image:radial-gradient(circle clamp(34px,12vmin,54px) at 50% 50.5%,transparent 0 97%,#000 100%)}
     #portada .cover-flap{z-index:2;clip-path:polygon(0 26%,100% 26%,50% 52%);transform-origin:50% 26%;backface-visibility:hidden;filter:drop-shadow(0 8px 12px #68563700)}
     #portada .cover-seal{z-index:3;clip-path:circle(11.5% at 50% 50.5%);transform-origin:50% 50.5%}
-    #portada .envelope{position:absolute;z-index:5;top:50.5%;left:50%;width:min(34vw,158px);height:min(18svh,150px);min-width:116px;min-height:104px;max-height:none;padding:0;border:0;border-radius:50%;background:transparent;box-shadow:none;transform:translate(-50%,-50%);perspective:none}
+    #portada .envelope{position:absolute;z-index:6;top:50.5%;left:50%;width:min(34vw,158px);height:min(18svh,150px);min-width:116px;min-height:104px;max-height:none;padding:0;border:0;border-radius:50%;background:transparent;box-shadow:none;transform:translate(-50%,-50%);perspective:none}
     #portada .envelope:hover,#portada .envelope:active{box-shadow:none;transform:translate(-50%,-50%)}
     #portada .envelope:before{inset:-8%;border-radius:50%;background:radial-gradient(circle,#fff0c77d 0,#e8cf9d45 40%,transparent 72%);animation:seal-pulse 2.4s ease-in-out infinite alternate}
-    #portada .cover-prompt{position:absolute;z-index:6;right:16px;bottom:max(22px,env(safe-area-inset-bottom));left:16px;margin:0;color:#77613a;font:500 .58rem/1.4 Montserrat,Arial,sans-serif;letter-spacing:.19em;text-align:center;text-transform:uppercase;text-shadow:0 1px 8px #fff8e7;transition:opacity .28s ease,transform .4s ease}
-    #portada.opening .cover-art{animation:alana-cover-glide 1.32s .1s cubic-bezier(.2,.72,.22,1) both}
-    #portada.opening .cover-flap{animation:alana-flap-lift 1.03s .04s cubic-bezier(.18,.76,.2,1) both}
-    #portada.opening .cover-seal{animation:alana-seal-release .76s .03s cubic-bezier(.15,.8,.2,1) both}
+    #portada .cover-prompt{position:absolute;z-index:7;right:16px;bottom:max(22px,env(safe-area-inset-bottom));left:16px;margin:0;color:#77613a;font:500 .58rem/1.4 Montserrat,Arial,sans-serif;letter-spacing:.19em;text-align:center;text-transform:uppercase;text-shadow:0 1px 8px #fff8e7;transition:opacity .28s ease,transform .4s ease}
+    #portada .cover-glint{position:absolute;z-index:5;left:var(--x);top:var(--y);width:var(--size,8px);height:var(--size,8px);opacity:0;color:#fff1c4;background:currentColor;clip-path:polygon(50% 0,62% 38%,100% 50%,62% 62%,50% 100%,38% 62%,0 50%,38% 38%);filter:drop-shadow(0 0 3px #d9ad5b) drop-shadow(0 0 8px #fff0bd);pointer-events:none;transform:translate(-50%,-50%) scale(.2) rotate(0)}
+    #portada .cover-glint:after{position:absolute;inset:-5px;border-radius:50%;background:radial-gradient(circle,#fff3ce88,transparent 72%);content:'';filter:blur(2px)}
+    #portada.opening .cover-art{animation:alana-cover-glide 1.72s 2.18s cubic-bezier(.2,.72,.22,1) both}
+    #portada.opening .cover-flap{animation:alana-flap-lift 1.72s 1.72s cubic-bezier(.18,.76,.2,1) both}
+    #portada.opening .cover-seal{animation:alana-seal-release 1.28s 1.12s cubic-bezier(.15,.8,.2,1) both}
+    #portada.opening .cover-glint{animation:alana-detail-twinkle 1.28s ease-in-out var(--delay) both}
     #portada.opening .envelope{animation:none}
-    #portada.opening .envelope:before{animation:alana-seal-flash .7s ease-out both}
+    #portada.opening .envelope:before{animation:alana-seal-resonance 1.9s ease-out both}
     #portada.opening .cover-prompt{opacity:0;transform:translateY(7px)}
     #portada:after{position:absolute;z-index:4;inset:0;content:"";opacity:0;background:radial-gradient(ellipse at 50% 50%,#fff8e8 0,#f3dfb991 13%,#f3dfb933 29%,transparent 55%);pointer-events:none}
-    #portada.opening:after{animation:alana-warm-flash 1.05s .08s ease-out both}
+    #portada.opening:after{animation:alana-warm-flash 1.8s 1.48s ease-out both}
     #portada.dismissed{opacity:0;visibility:hidden;pointer-events:none;transition:opacity .42s ease,visibility 0s linear .42s}
     #invitacion{transform:none;transition:opacity .62s ease,visibility 0s linear .62s}
     #invitacion.visible{transition-delay:0s}
-    @keyframes alana-cover-glide{0%,15%{opacity:1;transform:scale(1);filter:brightness(1)}100%{opacity:0;transform:scale(1.045);filter:brightness(1.13) blur(2px)}}
-    @keyframes alana-flap-lift{0%{transform:rotateX(0);filter:drop-shadow(0 8px 12px #68563700)}28%{filter:drop-shadow(0 17px 15px #68563770)}100%{transform:rotateX(168deg);opacity:0;filter:drop-shadow(0 0 0 #68563700)}}
-    @keyframes alana-seal-release{0%,18%{opacity:1;transform:translateY(0) scale(1)}100%{opacity:0;transform:translateY(-10vh) scale(.68) rotate(-12deg)}}
-    @keyframes alana-seal-flash{0%{opacity:.6;transform:scale(.84)}35%{opacity:1;transform:scale(1.5)}100%{opacity:0;transform:scale(2.3)}}
+    @keyframes alana-cover-glide{0%,18%{opacity:1;transform:scale(1);filter:brightness(1)}62%{opacity:1;transform:scale(1.015);filter:brightness(1.1)}100%{opacity:0;transform:scale(1.045);filter:brightness(1.17) blur(2px)}}
+    @keyframes alana-flap-lift{0%{transform:rotateX(0);filter:drop-shadow(0 5px 8px #68563700)}32%{filter:drop-shadow(0 16px 14px #68563770)}100%{transform:rotateX(168deg);opacity:0;filter:drop-shadow(0 0 0 #68563700)}}
+    @keyframes alana-seal-release{0%,32%{opacity:1;transform:translateY(0) scale(1)}56%{opacity:1;transform:translateY(-3px) scale(1.08)}100%{opacity:0;transform:translateY(-8vh) scale(.72) rotate(-12deg)}}
+    @keyframes alana-seal-resonance{0%{opacity:.42;transform:scale(.82)}28%{opacity:1;transform:scale(1.2)}62%{opacity:.82;transform:scale(1.08)}100%{opacity:0;transform:scale(2.15)}}
+    @keyframes alana-detail-twinkle{0%,100%{opacity:0;transform:translate(-50%,-50%) scale(.22) rotate(0)}22%{opacity:.95;transform:translate(-50%,-50%) scale(1.12) rotate(45deg)}48%{opacity:.42;transform:translate(-50%,-50%) scale(.68) rotate(90deg)}72%{opacity:.88;transform:translate(-50%,-50%) scale(.98) rotate(135deg)}}
     @keyframes alana-warm-flash{0%{opacity:0;transform:scale(.72)}34%{opacity:.92}100%{opacity:0;transform:scale(1.16)}}
     @media(max-width:380px){#portada .cover-prompt{font-size:.52rem;letter-spacing:.15em}}
     @media(min-aspect-ratio:3/4){#portada .cover-stage{right:auto;left:50%;width:min(100vw,56.25svh);transform:translateX(-50%)}}
@@ -73,7 +77,7 @@
 <body>
   <main class="page">
     <section class="welcome" id="portada" aria-label="Sobre de invitación">
-      <div class="cover-stage"><img class="cover-art" src="alana-envelope-mobile-v1.jpg" alt="" aria-hidden="true" fetchpriority="high"><img class="cover-flap" src="alana-envelope-mobile-v1.jpg" alt="" aria-hidden="true"><img class="cover-seal" src="alana-envelope-mobile-v1.jpg" alt="" aria-hidden="true"><button class="envelope" id="open-envelope" type="button" aria-label="Toca el sello de la cruz para abrir la invitación"></button><p class="cover-prompt" aria-hidden="true">Toca el sello para abrir</p></div>
+      <div class="cover-stage"><img class="cover-art" src="alana-envelope-mobile-v1.jpg" alt="" aria-hidden="true" fetchpriority="high"><img class="cover-flap" src="alana-envelope-mobile-v1.jpg" alt="" aria-hidden="true"><img class="cover-seal" src="alana-envelope-mobile-v1.jpg" alt="" aria-hidden="true"><span class="cover-glint" style="--x:14%;--y:9%;--size:7px;--delay:.16s" aria-hidden="true"></span><span class="cover-glint" style="--x:86%;--y:9%;--size:8px;--delay:.32s" aria-hidden="true"></span><span class="cover-glint" style="--x:8%;--y:22%;--size:6px;--delay:.48s" aria-hidden="true"></span><span class="cover-glint" style="--x:92%;--y:22%;--size:7px;--delay:.64s" aria-hidden="true"></span><span class="cover-glint" style="--x:6%;--y:39%;--size:8px;--delay:.8s" aria-hidden="true"></span><span class="cover-glint" style="--x:94%;--y:39%;--size:6px;--delay:.96s" aria-hidden="true"></span><span class="cover-glint" style="--x:35%;--y:47%;--size:5px;--delay:1.12s" aria-hidden="true"></span><span class="cover-glint" style="--x:65%;--y:47%;--size:6px;--delay:1.28s" aria-hidden="true"></span><span class="cover-glint" style="--x:6%;--y:67%;--size:7px;--delay:1.44s" aria-hidden="true"></span><span class="cover-glint" style="--x:94%;--y:67%;--size:8px;--delay:1.6s" aria-hidden="true"></span><span class="cover-glint" style="--x:17%;--y:91%;--size:6px;--delay:1.76s" aria-hidden="true"></span><span class="cover-glint" style="--x:83%;--y:91%;--size:7px;--delay:1.92s" aria-hidden="true"></span><span class="cover-glint" style="--x:50%;--y:96%;--size:7px;--delay:2.08s" aria-hidden="true"></span><button class="envelope" id="open-envelope" type="button" aria-label="Toca el sello de la cruz para abrir la invitación"></button><p class="cover-prompt" aria-hidden="true">Toca el sello para abrir</p></div>
       
     </section>
     <section class="invitation" id="invitacion" tabindex="-1" aria-hidden="true" aria-labelledby="invite-title">
@@ -187,7 +191,7 @@
           cover.classList.add('dismissed');
           document.body.style.overflow = '';
           invitation.focus({ preventScroll: true });
-        }, reducedMotion ? 80 : 1450);
+        }, reducedMotion ? 80 : 4200);
       });
 
       musicButton.addEventListener('click', () => {
