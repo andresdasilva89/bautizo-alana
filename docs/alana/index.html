@@ -8,7 +8,8 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="El bautizo de Alana Da Silva">
   <meta property="og:description" content="Una invitación especial para celebrar una bendición en familia.">
-  <meta property="og:image" content="cover-envelope.jpg">
+  <meta property="og:image" content="alana-envelope-mobile-v1.jpg">
+  <link rel="preload" as="image" href="alana-envelope-mobile-v1.jpg" fetchpriority="high">
   <title>El bautizo de Alana Da Silva</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -36,13 +37,42 @@
     .cover-stage{position:absolute;top:50%;left:50%;width:min(100vw,480px,calc(100svh * .5673));aspect-ratio:944/1664;transform:translate(-50%,-50%);transform-style:preserve-3d}.cover-art,.cover-open,.cover-flap,.cover-seal,.cover-dissolve{position:absolute;inset:0;width:100%;height:100%;object-fit:fill;transform:translateX(0);pointer-events:none}.cover-art{z-index:0}.cover-open{z-index:1;opacity:0}.cover-flap{z-index:3;clip-path:polygon(3.4% 25.3%,96.2% 25.3%,50% 53.2%);transform-origin:50% 25.3%;backface-visibility:hidden}.cover-seal{z-index:4;clip-path:circle(13% at 50% 51.5%);transform-origin:50% 51.5%}.cover-dissolve{z-index:5;opacity:0}.cover-stage .envelope{position:absolute;z-index:6;top:51.5%;left:50%;width:24%;height:14%;min-width:0;min-height:0;max-height:none;padding:0;border:0;border-radius:50%;background:transparent;box-shadow:none;transform:translate(-50%,-50%);perspective:none}.cover-stage .envelope:before{display:none}.cover-stage .envelope>*{display:none}.opening .cover-art{animation:closed-cover-away .95s .45s ease-in forwards}.opening .cover-open{animation:open-envelope-appear 1.25s .35s ease-out both}.opening .cover-flap{animation:physical-flap-open 1.15s .08s cubic-bezier(.2,.7,.2,1) forwards}.opening .cover-seal{animation:seal-lift .72s .04s cubic-bezier(.15,.8,.2,1) forwards}.opening .cover-stage .envelope{animation:none}.opening .light{z-index:7;animation:warm-flash 1.05s .3s ease-out both}.dissolving .cover-open{animation:open-envelope-away .85s ease-in forwards}.dissolving .cover-dissolve{animation:lace-flowers-away 1.25s ease-out both}@keyframes physical-flap-open{0%{transform:rotateX(0);filter:drop-shadow(0 8px 12px #71634900)}25%{filter:drop-shadow(0 15px 15px #71634950)}100%{transform:rotateX(168deg);filter:drop-shadow(0 0 0 #71634900);opacity:0}}@keyframes seal-lift{0%{opacity:1}24%{opacity:1;transform:translateY(-3px) scale(1.08)}100%{opacity:0;transform:translateY(-24vh) scale(.72) rotate(-16deg)}}@keyframes open-envelope-appear{0%{opacity:0}40%{opacity:.12}100%{opacity:1}}@keyframes warm-flash{0%{opacity:0;transform:translate(-50%,-50%) scale(.1)}30%{opacity:.96;transform:translate(-50%,-50%) scale(1.2)}100%{opacity:0;transform:translate(-50%,-50%) scale(1.85)}}
     @keyframes closed-cover-away{to{opacity:0;filter:blur(5px);transform:scale(1.025)}}@keyframes open-envelope-away{to{opacity:0;filter:blur(5px);transform:scale(1.025)}}@keyframes lace-flowers-away{0%{opacity:0;filter:blur(0);transform:scale(.99)}22%,52%{opacity:1;filter:blur(0)}100%{opacity:0;filter:blur(8px) brightness(1.12);transform:scale(1.035)}}
     .opening .cover-art{animation:single-envelope-exit .9s cubic-bezier(.2,.72,.22,1) both}.welcome{transition:opacity .5s ease,visibility 0s linear .5s}.welcome:after{position:absolute;z-index:2;inset:0;content:"";opacity:0;background:radial-gradient(ellipse at 50% 51%,#fff7df 0,#f7e9c4a8 12%,#f3e6c34f 24%,transparent 48%);pointer-events:none}.opening:after{animation:envelope-light-out .95s ease-out both}.light{display:none}.invitation{transform:none;transition:opacity .55s ease,visibility 0s linear .55s}.invitation.visible{transition-delay:0s}@keyframes single-envelope-exit{0%{opacity:1;transform:scale(1);filter:brightness(1)}24%{opacity:1;transform:scale(1.025);filter:brightness(1.12)}100%{opacity:0;transform:scale(1.08);filter:brightness(1.18) blur(1px)}}@keyframes envelope-light-out{0%{opacity:0;transform:scale(.72)}35%{opacity:.95}100%{opacity:0;transform:scale(1.18)}}
+    /* Apertura a pantalla completa, afinada para móviles */
+    #portada{height:100vh;height:100dvh;min-height:100vh;min-height:100dvh;padding:0;background:transparent;transition:opacity .45s ease,visibility 0s linear .45s}
+    #portada:before{display:none}
+    #portada .cover-stage{position:absolute;inset:0;width:100%;height:100%;aspect-ratio:auto;overflow:hidden;transform:none;transform-style:preserve-3d}
+    #portada .cover-art,#portada .cover-flap,#portada .cover-seal{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;transform:translateX(0);pointer-events:none}
+    #portada .cover-art{z-index:0;clip-path:polygon(0 0,0 100%,100% 100%,100% 0,100% 26%,50% 52%,0 26%);-webkit-mask-image:radial-gradient(circle clamp(34px,12vmin,54px) at 50% 50.5%,transparent 0 97%,#000 100%);mask-image:radial-gradient(circle clamp(34px,12vmin,54px) at 50% 50.5%,transparent 0 97%,#000 100%)}
+    #portada .cover-flap{z-index:2;clip-path:polygon(0 26%,100% 26%,50% 52%);transform-origin:50% 26%;backface-visibility:hidden;filter:drop-shadow(0 8px 12px #68563700)}
+    #portada .cover-seal{z-index:3;clip-path:circle(11.5% at 50% 50.5%);transform-origin:50% 50.5%}
+    #portada .envelope{position:absolute;z-index:5;top:50.5%;left:50%;width:min(34vw,158px);height:min(18svh,150px);min-width:116px;min-height:104px;max-height:none;padding:0;border:0;border-radius:50%;background:transparent;box-shadow:none;transform:translate(-50%,-50%);perspective:none}
+    #portada .envelope:hover,#portada .envelope:active{box-shadow:none;transform:translate(-50%,-50%)}
+    #portada .envelope:before{inset:-8%;border-radius:50%;background:radial-gradient(circle,#fff0c77d 0,#e8cf9d45 40%,transparent 72%);animation:seal-pulse 2.4s ease-in-out infinite alternate}
+    #portada .cover-prompt{position:absolute;z-index:6;right:16px;bottom:max(22px,env(safe-area-inset-bottom));left:16px;margin:0;color:#77613a;font:500 .58rem/1.4 Montserrat,Arial,sans-serif;letter-spacing:.19em;text-align:center;text-transform:uppercase;text-shadow:0 1px 8px #fff8e7;transition:opacity .28s ease,transform .4s ease}
+    #portada.opening .cover-art{animation:alana-cover-glide 1.32s .1s cubic-bezier(.2,.72,.22,1) both}
+    #portada.opening .cover-flap{animation:alana-flap-lift 1.03s .04s cubic-bezier(.18,.76,.2,1) both}
+    #portada.opening .cover-seal{animation:alana-seal-release .76s .03s cubic-bezier(.15,.8,.2,1) both}
+    #portada.opening .envelope{animation:none}
+    #portada.opening .envelope:before{animation:alana-seal-flash .7s ease-out both}
+    #portada.opening .cover-prompt{opacity:0;transform:translateY(7px)}
+    #portada:after{position:absolute;z-index:4;inset:0;content:"";opacity:0;background:radial-gradient(ellipse at 50% 50%,#fff8e8 0,#f3dfb991 13%,#f3dfb933 29%,transparent 55%);pointer-events:none}
+    #portada.opening:after{animation:alana-warm-flash 1.05s .08s ease-out both}
+    #portada.dismissed{opacity:0;visibility:hidden;pointer-events:none;transition:opacity .42s ease,visibility 0s linear .42s}
+    #invitacion{transform:none;transition:opacity .62s ease,visibility 0s linear .62s}
+    #invitacion.visible{transition-delay:0s}
+    @keyframes alana-cover-glide{0%,15%{opacity:1;transform:scale(1);filter:brightness(1)}100%{opacity:0;transform:scale(1.045);filter:brightness(1.13) blur(2px)}}
+    @keyframes alana-flap-lift{0%{transform:rotateX(0);filter:drop-shadow(0 8px 12px #68563700)}28%{filter:drop-shadow(0 17px 15px #68563770)}100%{transform:rotateX(168deg);opacity:0;filter:drop-shadow(0 0 0 #68563700)}}
+    @keyframes alana-seal-release{0%,18%{opacity:1;transform:translateY(0) scale(1)}100%{opacity:0;transform:translateY(-10vh) scale(.68) rotate(-12deg)}}
+    @keyframes alana-seal-flash{0%{opacity:.6;transform:scale(.84)}35%{opacity:1;transform:scale(1.5)}100%{opacity:0;transform:scale(2.3)}}
+    @keyframes alana-warm-flash{0%{opacity:0;transform:scale(.72)}34%{opacity:.92}100%{opacity:0;transform:scale(1.16)}}
+    @media(max-width:380px){#portada .cover-prompt{font-size:.52rem;letter-spacing:.15em}}
     @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
   </style>
 </head>
 <body>
   <main class="page">
     <section class="welcome" id="portada" aria-label="Sobre de invitación">
-      <div class="cover-stage"><img class="cover-art" src="cover-envelope.jpg" alt="" aria-hidden="true"><button class="envelope" id="open-envelope" type="button" aria-label="Abrir la invitación tocando la cruz"></button></div>
+      <div class="cover-stage"><img class="cover-art" src="alana-envelope-mobile-v1.jpg" alt="" aria-hidden="true" fetchpriority="high"><img class="cover-flap" src="alana-envelope-mobile-v1.jpg" alt="" aria-hidden="true"><img class="cover-seal" src="alana-envelope-mobile-v1.jpg" alt="" aria-hidden="true"><button class="envelope" id="open-envelope" type="button" aria-label="Toca el sello de la cruz para abrir la invitación"></button><p class="cover-prompt" aria-hidden="true">Toca el sello para abrir</p></div>
       
     </section>
     <section class="invitation" id="invitacion" tabindex="-1" aria-hidden="true" aria-labelledby="invite-title">
@@ -148,14 +178,15 @@
         opened = true;
         openButton.disabled = true;
         cover.classList.add('opening');
+        invitation.classList.add('visible');
+        invitation.setAttribute('aria-hidden', 'false');
         startMusic().catch(() => {});
+        const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         window.setTimeout(() => {
           cover.classList.add('dismissed');
-          invitation.classList.add('visible');
-          invitation.setAttribute('aria-hidden', 'false');
           document.body.style.overflow = '';
           invitation.focus({ preventScroll: true });
-        }, 1050);
+        }, reducedMotion ? 80 : 1450);
       });
 
       musicButton.addEventListener('click', () => {
