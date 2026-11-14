@@ -49,8 +49,8 @@
     #portada .envelope:hover,#portada .envelope:active{box-shadow:none;transform:translate(-50%,-50%)}
     #portada .envelope:before{inset:-8%;border-radius:50%;background:radial-gradient(circle,#fff0c77d 0,#e8cf9d45 40%,transparent 72%);animation:seal-pulse 2.4s ease-in-out infinite alternate}
     #portada .cover-prompt{position:absolute;z-index:7;right:16px;bottom:max(22px,env(safe-area-inset-bottom));left:16px;margin:0;color:#77613a;font:500 .58rem/1.4 Montserrat,Arial,sans-serif;letter-spacing:.19em;text-align:center;text-transform:uppercase;text-shadow:0 1px 8px #fff8e7;transition:opacity .28s ease,transform .4s ease}
-    #portada .cover-glint{position:absolute;z-index:5;left:var(--x);top:var(--y);width:var(--size,8px);height:var(--size,8px);opacity:0;color:#fff1c4;background:currentColor;clip-path:polygon(50% 0,62% 38%,100% 50%,62% 62%,50% 100%,38% 62%,0 50%,38% 38%);filter:drop-shadow(0 0 3px #d9ad5b) drop-shadow(0 0 8px #fff0bd);pointer-events:none;transform:translate(-50%,-50%) scale(.2) rotate(0)}
-    #portada .cover-glint:after{position:absolute;inset:-5px;border-radius:50%;background:radial-gradient(circle,#fff3ce88,transparent 72%);content:'';filter:blur(2px)}
+    #portada .cover-glint{position:absolute;z-index:5;left:var(--x);top:var(--y);width:var(--size,8px);height:var(--size,8px);opacity:0;color:#fff1c4;background:currentColor;clip-path:polygon(50% 0,62% 38%,100% 50%,62% 62%,50% 100%,38% 62%,0 50%,38% 38%);filter:drop-shadow(0 0 4px #d9ad5b) drop-shadow(0 0 11px #fff0bd);isolation:isolate;pointer-events:none;transform:translate(-50%,-50%) scale(.2) rotate(0)}
+    #portada .cover-glint:after{position:absolute;z-index:-1;inset:-9px;border-radius:50%;background:radial-gradient(circle,#fff3ceaa,transparent 72%);content:'';filter:blur(3px)}
     #portada.opening .cover-art{animation:alana-cover-glide 1.72s 2.18s cubic-bezier(.2,.72,.22,1) both}
     #portada.opening .cover-flap{animation:alana-flap-lift 1.72s 1.72s cubic-bezier(.18,.76,.2,1) both}
     #portada.opening .cover-seal{animation:alana-seal-release 1.28s 1.12s cubic-bezier(.15,.8,.2,1) both}
@@ -67,7 +67,7 @@
     @keyframes alana-flap-lift{0%{transform:rotateX(0);filter:drop-shadow(0 5px 8px #68563700)}32%{filter:drop-shadow(0 16px 14px #68563770)}100%{transform:rotateX(168deg);opacity:0;filter:drop-shadow(0 0 0 #68563700)}}
     @keyframes alana-seal-release{0%,32%{opacity:1;transform:translateY(0) scale(1)}56%{opacity:1;transform:translateY(-3px) scale(1.08)}100%{opacity:0;transform:translateY(-8vh) scale(.72) rotate(-12deg)}}
     @keyframes alana-seal-resonance{0%{opacity:.42;transform:scale(.82)}28%{opacity:1;transform:scale(1.2)}62%{opacity:.82;transform:scale(1.08)}100%{opacity:0;transform:scale(2.15)}}
-    @keyframes alana-detail-twinkle{0%,100%{opacity:0;transform:translate(-50%,-50%) scale(.22) rotate(0)}22%{opacity:.95;transform:translate(-50%,-50%) scale(1.12) rotate(45deg)}48%{opacity:.42;transform:translate(-50%,-50%) scale(.68) rotate(90deg)}72%{opacity:.88;transform:translate(-50%,-50%) scale(.98) rotate(135deg)}}
+    @keyframes alana-detail-twinkle{0%,100%{opacity:0;transform:translate(-50%,-50%) scale(.22) rotate(0)}22%{opacity:1;transform:translate(-50%,-50%) scale(1.38) rotate(45deg)}48%{opacity:.48;transform:translate(-50%,-50%) scale(.76) rotate(90deg)}72%{opacity:.96;transform:translate(-50%,-50%) scale(1.18) rotate(135deg)}}
     @keyframes alana-warm-flash{0%{opacity:0;transform:scale(.72)}34%{opacity:.92}100%{opacity:0;transform:scale(1.16)}}
     @media(max-width:380px){#portada .cover-prompt{font-size:.52rem;letter-spacing:.15em}}
     @media(min-aspect-ratio:3/4){#portada .cover-stage{right:auto;left:50%;width:min(100vw,56.25svh);transform:translateX(-50%)}}
@@ -183,10 +183,12 @@
         opened = true;
         openButton.disabled = true;
         cover.classList.add('opening');
-        invitation.classList.add('visible');
-        invitation.setAttribute('aria-hidden', 'false');
         startMusic().catch(() => {});
         const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        window.setTimeout(() => {
+          invitation.classList.add('visible');
+          invitation.setAttribute('aria-hidden', 'false');
+        }, reducedMotion ? 0 : 1450);
         window.setTimeout(() => {
           cover.classList.add('dismissed');
           document.body.style.overflow = '';
