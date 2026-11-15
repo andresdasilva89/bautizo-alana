@@ -10,6 +10,8 @@
   <meta property="og:description" content="Una invitación especial para celebrar una bendición en familia.">
   <meta property="og:image" content="alana-envelope-mobile-v1.jpg">
   <link rel="preload" as="image" href="alana-envelope-mobile-v1.jpg" fetchpriority="high">
+  <link rel="preload" as="image" href="alana-baptism-background.jpg">
+  <link rel="preload" as="image" href="alana-name-ananda.png">
   <title>El bautizo de Alana Da Silva</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -72,15 +74,29 @@
     @media(max-width:380px){#portada .cover-prompt{font-size:.52rem;letter-spacing:.15em}}
     @media(min-aspect-ratio:3/4){#portada .cover-stage{right:auto;left:50%;width:min(100vw,56.25svh);transform:translateX(-50%)}}
     @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+
+    /* Opaque paper reveals the already rendered invitation in one continuous movement. */
+    #portada .cover-art,#portada .cover-flap{object-fit:fill;will-change:transform}
+    #portada .cover-stage{perspective:1600px}
+    #portada .cover-flap{clip-path:polygon(0 0,100% 0,100% 19%,96% 25%,86% 33%,70% 42%,63% 45%,63% 49%,59% 53%,52% 54%,44% 53%,38% 50%,37% 45%,30% 42%,14% 33%,4% 25%,0 19%);transform-origin:50% 0;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+    #portada .envelope{top:46%;width:29%;height:16%}
+    #portada.opening .cover-art{animation:paper-front-withdraw 2.15s 3.85s cubic-bezier(.4,0,.2,1) both}
+    #portada.opening .cover-flap{animation:paper-flap-unfold 2.2s 3.4s cubic-bezier(.4,0,.2,1) both}
+    #portada:after,#portada.opening:after{display:none;animation:none}
+    #portada.dismissed{transition:none}
+    #invitacion,#invitacion.visible{opacity:1;visibility:visible;clip-path:inset(0);transition:clip-path .65s ease;transform:none}
+    @media(min-aspect-ratio:3/4){body:not(.invitation-open) #invitacion{clip-path:inset(0 max(0px,calc((100vw - 56.25svh)/2)) 0)}}
+    @keyframes paper-front-withdraw{0%{opacity:1;transform:translateY(0);filter:none}100%{opacity:1;transform:translateY(110%);filter:none}}
+    @keyframes paper-flap-unfold{0%{opacity:1;transform:rotateX(0);filter:none}100%{opacity:1;transform:rotateX(165deg);filter:none}}
   </style>
 </head>
 <body>
   <main class="page">
     <section class="welcome" id="portada" aria-label="Sobre de invitación">
-      <div class="cover-stage"><svg class="cover-mask-defs" width="0" height="0" aria-hidden="true"><defs><mask id="cover-openings" x="0" y="0" width="1" height="1" maskUnits="objectBoundingBox" maskContentUnits="objectBoundingBox" style="mask-type:luminance"><rect x="0" y="0" width="1" height="1" fill="white"/><path d="M0 .26L1 .26L.5 .52Z" fill="black"/><ellipse cx=".5" cy=".505" rx=".115" ry=".062" fill="black"/></mask></defs></svg><img class="cover-art" src="alana-envelope-mobile-v1.jpg" alt="" aria-hidden="true" fetchpriority="high"><img class="cover-flap" src="alana-envelope-mobile-v1.jpg" alt="" aria-hidden="true"><img class="cover-seal" src="alana-envelope-mobile-v1.jpg" alt="" aria-hidden="true"><span class="cover-glint" style="--x:14%;--y:9%;--size:20px;--delay:.14s" aria-hidden="true"></span><span class="cover-glint" style="--x:86%;--y:9%;--size:21px;--delay:.42s" aria-hidden="true"></span><span class="cover-glint" style="--x:8%;--y:22%;--size:18px;--delay:.7s" aria-hidden="true"></span><span class="cover-glint" style="--x:92%;--y:22%;--size:20px;--delay:.98s" aria-hidden="true"></span><span class="cover-glint" style="--x:6%;--y:39%;--size:22px;--delay:1.26s" aria-hidden="true"></span><span class="cover-glint" style="--x:94%;--y:39%;--size:19px;--delay:1.54s" aria-hidden="true"></span><span class="cover-glint" style="--x:35%;--y:47%;--size:18px;--delay:1.82s" aria-hidden="true"></span><span class="cover-glint" style="--x:65%;--y:47%;--size:19px;--delay:2.1s" aria-hidden="true"></span><span class="cover-glint" style="--x:6%;--y:67%;--size:20px;--delay:2.38s" aria-hidden="true"></span><span class="cover-glint" style="--x:94%;--y:67%;--size:22px;--delay:2.66s" aria-hidden="true"></span><span class="cover-glint" style="--x:17%;--y:91%;--size:18px;--delay:2.94s" aria-hidden="true"></span><span class="cover-glint" style="--x:83%;--y:91%;--size:20px;--delay:3.22s" aria-hidden="true"></span><span class="cover-glint" style="--x:50%;--y:96%;--size:21px;--delay:3.5s" aria-hidden="true"></span><button class="envelope" id="open-envelope" type="button" aria-label="Toca el sello de la cruz para abrir la invitación"></button><p class="cover-prompt" aria-hidden="true">Toca el sello para abrir</p></div>
+      <div class="cover-stage"><svg class="cover-mask-defs" width="0" height="0" aria-hidden="true"><defs><mask id="cover-openings" x="0" y="0" width="1" height="1" maskUnits="objectBoundingBox" maskContentUnits="objectBoundingBox" style="mask-type:luminance"><rect x="0" y="0" width="1" height="1" fill="white"/><path d="M0 0H1V.19L.96 .25 .86 .33 .70 .42 .63 .45 .63 .49 .59 .53 .52 .54 .44 .53 .38 .50 .37 .45 .30 .42 .14 .33 .04 .25 0 .19Z" fill="black"/></mask></defs></svg><img class="cover-art" src="alana-envelope-mobile-v1.jpg" alt="" aria-hidden="true" fetchpriority="high"><img class="cover-flap" src="alana-envelope-mobile-v1.jpg" alt="" aria-hidden="true"><span class="cover-glint" style="--x:14%;--y:9%;--size:20px;--delay:.14s" aria-hidden="true"></span><span class="cover-glint" style="--x:86%;--y:9%;--size:21px;--delay:.42s" aria-hidden="true"></span><span class="cover-glint" style="--x:8%;--y:22%;--size:18px;--delay:.7s" aria-hidden="true"></span><span class="cover-glint" style="--x:92%;--y:22%;--size:20px;--delay:.98s" aria-hidden="true"></span><span class="cover-glint" style="--x:6%;--y:39%;--size:22px;--delay:1.26s" aria-hidden="true"></span><span class="cover-glint" style="--x:94%;--y:39%;--size:19px;--delay:1.54s" aria-hidden="true"></span><span class="cover-glint" style="--x:35%;--y:47%;--size:18px;--delay:1.82s" aria-hidden="true"></span><span class="cover-glint" style="--x:65%;--y:47%;--size:19px;--delay:2.1s" aria-hidden="true"></span><span class="cover-glint" style="--x:6%;--y:67%;--size:20px;--delay:2.38s" aria-hidden="true"></span><span class="cover-glint" style="--x:94%;--y:67%;--size:22px;--delay:2.66s" aria-hidden="true"></span><span class="cover-glint" style="--x:17%;--y:91%;--size:18px;--delay:2.94s" aria-hidden="true"></span><span class="cover-glint" style="--x:83%;--y:91%;--size:20px;--delay:3.22s" aria-hidden="true"></span><span class="cover-glint" style="--x:50%;--y:96%;--size:21px;--delay:3.5s" aria-hidden="true"></span><button class="envelope" id="open-envelope" type="button" aria-label="Toca el sello de la cruz para abrir la invitación"></button><p class="cover-prompt" aria-hidden="true">Toca el sello para abrir</p></div>
       
     </section>
-    <section class="invitation" id="invitacion" tabindex="-1" aria-hidden="true" aria-labelledby="invite-title">
+    <section class="invitation" id="invitacion" tabindex="-1" aria-hidden="true" inert aria-labelledby="invite-title">
       <div class="invite-glow" aria-hidden="true"></div>
       <article class="card"><div class="card-content"><p class="card-eyebrow">Con mucha alegría</p><p class="card-call">Te invitamos al</p><h2 id="invite-title">Bautizo</h2><p class="card-subtitle">de nuestra hija</p><img class="card-name" src="alana-name-ananda.png" alt="Alana Da Silva"><p class="card-copy">Acompáñanos a celebrar este día de fe, amor y alegría junto a nuestras familias.</p><div class="divider"><span>✦</span></div><div class="when"><div><span>VIERNES</span><strong>18 de diciembre<br>de 2026</strong></div><i aria-hidden="true"></i><div><span>HORA</span><strong>6:00 p. m.</strong></div></div><p class="venue-label">Ceremonia religiosa</p><h3>Iglesia de los<br>Sacramentinos</h3><p class="address">Av. Santa Isabel 1127 · Santiago</p></div></article>
       <section class="family" aria-label="Familia de Alana"><p class="family-eyebrow">Con el cariño de</p><div class="family-grid"><div><span>Sus padres</span><img class="family-names" src="parents-names-ananda-spaced.png" alt="Andres Da Silva y Juri Hernandez"></div><i aria-hidden="true"></i><div><span>Sus padrinos</span><img class="family-names" src="godparents-names-ananda-spaced.png" alt="Monica Perez y Argenis Valenzuela"></div></div><p class="closing">Será una alegría compartir este momento contigo.</p><a class="map-link" href="https://maps.google.com/?q=Iglesia+de+los+Sacramentinos,+Av.+Santa+Isabel+1127,+Santiago,+Chile" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">⌖</span>Ver ubicación</a><button class="music-toggle" id="music-toggle" type="button" aria-pressed="true"><span aria-hidden="true">♫</span>Pausar piano</button></section>
@@ -185,15 +201,15 @@
         cover.classList.add('opening');
         startMusic().catch(() => {});
         const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        window.setTimeout(() => {
-          invitation.classList.add('visible');
-          invitation.setAttribute('aria-hidden', 'false');
-        }, reducedMotion ? 0 : 3400);
+        invitation.classList.add('visible');
         window.setTimeout(() => {
           cover.classList.add('dismissed');
+          document.body.classList.add('invitation-open');
           document.body.style.overflow = '';
+          invitation.inert = false;
+          invitation.setAttribute('aria-hidden', 'false');
           invitation.focus({ preventScroll: true });
-        }, reducedMotion ? 80 : 5600);
+        }, reducedMotion ? 80 : 6100);
       });
 
       musicButton.addEventListener('click', () => {
