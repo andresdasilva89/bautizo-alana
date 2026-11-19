@@ -71,16 +71,21 @@
     @media(max-width:340px){.family-grid{grid-template-columns:1fr;gap:1rem}.family-grid i{width:54px;height:1px;justify-self:center}.family-names-text{font-size:1.1rem}}
     .music-credit{display:block;max-width:290px;margin:1rem auto 0;color:#837957;font:400 .6rem/1.6 Montserrat,Arial,sans-serif}.music-credit a{color:inherit;text-underline-offset:3px}
 
-    /* Restore the approved type sizes; reserve the upper artwork independently. */
+    /* Larger centered heading, positioned just beneath the cross and olive branches. */
     .card{container-type:inline-size}
-    .card-content{inset:23% 12% 10%;justify-content:flex-start}
+    .card-content{inset:18% 12% 10%;justify-content:flex-start}
+    .card-eyebrow{font-size:clamp(.58rem,3cqw,.83rem);line-height:1.4;letter-spacing:.16em}
+    .card-call{font-size:clamp(.56rem,2.85cqw,.79rem);line-height:1.4;letter-spacing:.12em;margin:.35rem 0 .12rem}
+    .card h2{font-size:clamp(1.85rem,9.8cqw,2.7rem);letter-spacing:.17em;margin:.15rem 0 .18rem}
+    .card-subtitle{font-size:clamp(.56rem,2.75cqw,.76rem);line-height:1.3;letter-spacing:.16em;margin:.08rem 0 .3rem}
+    .card-name{width:112%;max-width:none;align-self:center;flex:none;margin:.5rem 0 .65rem}
     @container (max-width:320px){
-      .card-content{inset:23% 11% 10%}
-      .card-eyebrow{font-size:2.3cqw}
-      .card-call{font-size:2.5cqw;margin:1.5cqw 0 .5cqw}
-      .card h2{font-size:9.2cqw;margin:.6cqw 0 .5cqw}
-      .card-subtitle{font-size:2.65cqw}
-      .card-name{margin:2cqw auto 2.5cqw}
+      .card-content{inset:18% 11% 10%}
+      .card-eyebrow{font-size:3cqw}
+      .card-call{font-size:2.85cqw;margin:1.5cqw 0 .5cqw}
+      .card h2{font-size:9.8cqw;margin:.6cqw 0 .5cqw}
+      .card-subtitle{font-size:2.75cqw}
+      .card-name{margin:2cqw 0 2.5cqw}
       .card-copy{font-size:4.2cqw;margin:.5cqw auto 2cqw}
       .divider{width:31cqw;margin:1cqw auto 2cqw}
       .when{gap:5cqw;margin:.5cqw 0 2.5cqw}
